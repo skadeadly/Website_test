@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BingeBeacon - Movie Finder</title>
+    <link rel="stylesheet" href="Index.css">
+    </head>
+<body>
+    <!-- the big logo -->
+    <header class="site-header">
+        <button id="hamburger-menu" class="hamburger-button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="wrapper title-animation">
+            <div class="top">BingeBeacon</div>
+            <div class="bottom" aria-hidden="true">BingeBeacon</div>
+        </div>
+    </header>
+    <!-- side bar -->
+    <nav id="sidebar" aria-hidden="true">
+        <ul>
+            <li><button id="refresh-btn" class="sidebar-button">Homepage</button></li>
+            <li><button id="show-favorites-btn" class="sidebar-button">My Favorites</button></li>
+            <li><button id="show-watched-btn" class="sidebar-button">Watched Movies</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Action">Action</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Comedy">Comedy</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Drama">Drama</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Horror">Horror</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Sci-Fi">Sci-Fi</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Romance">Romance</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Thriller">Thriller</button></li>
+            <li><button class="sidebar-button genre-btn" data-genre="Animation">Animation</button></li>
+            <li><button id="cta-btn" class="sidebar-button">Contact Us</button></li>
+        </ul>
+    </nav>
+<!-- the overlay-->
+    <div id="overlay" class="sidebar-overlay is-hidden"></div>
+
+<!-- main body with search and trending.... -->
+    <main class="container">
+        <div class="search-group">
+            <label for="search-input" class="visually-hidden">Search for a movie</label>
+            <input type="text" id="search-input" class="input" placeholder="Search for a movie...">
+            <button id="search-btn" class="btn btn-search" aria-label="Search Movies">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M10.5 2C5.81 2 2 5.81 2 10.5S5.81 19 10.5 19c2.29 0 4.35-.89 5.9-2.36l6.35 6.35 1.42-1.42-6.35-6.35C18.61 14.43 19 12.29 19 10.5 19 5.81 15.19 2 10.5 2zM10.5 16c-2.94 0-5.35-2.41-5.35-5.35 0-2.94 2.41-5.35 5.35-5.35 2.94 0 5.35 2.41 5.35 5.35 0 2.94-2.41 5.35-5.35 5.35z"></path>
+                </svg>
+                <span>Search</span>
+            </button>
+        </div>
+
+
+        <div class="movie-sections-wrapper">
+            <section id="trending" class="movie-section">
+                <h2 class="section-title">Trending This Week</h2>
+                <div class="section-grid movie-section-scrollable">
+                    </div>
+            </section>
+            <section id="popular" class="movie-section">
+                <h2 class="section-title">Popular Movies</h2>
+                <div class="section-grid movie-section-scrollable">
+                    </div>
+            </section>
+            <section id="top-rated" class="movie-section">
+                <h2 class="section-title">Top Rated Movies</h2>
+                <div class="section-grid movie-section-scrollable">
+                    </div>
+            </section>
+        </div>
+
+        <h2 id="browse-title" class="browse-title is-hidden"></h2>
+
+        <div id="results" class="movie-grid">
+            </div>
+
+        <div id="loading" class="loading-indicator is-hidden" aria-live="polite">
+             <div class="spinner"></div>
+             <p>Loading...</p>
+        </div>
+
+        <div id="end-of-results" class="end-of-results-message is-hidden">End Of Results</div>
+
+
+<!-- favorite popup -->
+    </main> <div id="favorites-modal-overlay" class="modal-overlay is-hidden">
+        <div id="favorites-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="favorites-modal-title">
+            <button class="btn-close close-modal-btn" id="close-favorites-modal" aria-label="Close favorites modal">×</button>
+            <h2 id="favorites-modal-title">My Favorites</h2>
+            <div id="favorites-modal-content" class="movie-grid">
+                <p class="empty-favorites-message is-hidden">You haven't added any favorites yet.</p>
+                </div>
+            <div id="favorites-loading" class="loading-indicator is-hidden" aria-live="polite">
+                 <div class="spinner"></div>
+                 <p>Loading favorites...</p>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- side notification-->
+    <div id="notification-area">
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Index.js"></script>
+
+</body>
+</html>
